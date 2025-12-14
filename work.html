@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+
+    <title>
+      works
+    </title>
+    
+    <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    
+ .gallery figure {
+  display: flex;
+  flex-direction: column;   /* 縦に並べる */
+  justify-content: flex-end; /* 下に揃える */
+  margin: 0;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery figcaption {
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+
+
+
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#lightbox-content {
+  max-width: 90vw;   /* 画面幅の90%以内 */
+  max-height: 90vh;  /* 画面高さの90%以内 */
+  text-align: center;
+}
+
+#lightbox-img {
+  max-width: 100%;   /* lightbox-content の中で収まる */
+  max-height: 80vh;  /* キャプション分の余白を確保 */
+  height: auto;
+  width: auto;
+}
+
+#lightbox-caption {
+  color: white;
+  margin-top: 10px;
+  font-size: 1em;
+}
+
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  padding: 10px;
+  user-select: none;
+}
+
+#prev-btn {
+  left: 20px;
+}
+
+#next-btn {
+  right: 20px;
+}
+
+.nav-btn:hover {
+  opacity: 0.7;
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+<center>
+<h3><a href="index.html" title="home">《</a>works<a href="file.html" title="files">》</a></h3>
+    
+    <div class="gallery">
+
+      <figure>
+        <img src="img/001.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>   
+      <figure>
+        <img src="img/002.JPEG" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/003.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/004.JPEG" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/005.JPEG" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/006.JPEG" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/007.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/008.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/009.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/010.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/010-1.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/011.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/012.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/013.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/014.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/015.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/015-1.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/016.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/017.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+      <figure>
+        <img src="img/018.png" alt="image">
+        <figcaption>イラスト1</figcaption>
+      </figure>
+
+
+
+
+      
+    </div>
+
+<!-- 拡大表示用の枠 -->
+
+<div id="lightbox">
+  <button id="prev-btn" class="nav-btn">＜</button>
+
+  <div id="lightbox-content">
+    <img id="lightbox-img" src="">
+    <p id="lightbox-caption"></p>
+  </div>
+
+  <button id="next-btn" class="nav-btn">＞</button>
+</div>
+
+
+
+    
+    <hr>
+    <a href="index.html">home</a>
+    
+    </center>
+
+
+
+<script>
+  const images = Array.from(document.querySelectorAll(".gallery img"));
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  let currentIndex = 0;
+
+  // 画像クリックで拡大
+  images.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      currentIndex = index;
+      showImage();
+    });
+  });
+
+  function showImage() {
+    lightboxImg.src = images[currentIndex].src;
+    lightbox.style.display = "flex";
+  }
+
+  // 背景クリックで閉じる
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  // ← → キーで画像切り替え
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display !== "flex") return;
+
+    if (e.key === "ArrowRight") {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage();
+    }
+    if (e.key === "ArrowLeft") {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage();
+    }
+  });
+
+  // スマホのスワイプ対応
+  let startX = 0;
+
+  lightbox.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  lightbox.addEventListener("touchend", (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = endX - startX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff < 0) {
+        // 左へスワイプ → 次の画像
+        currentIndex = (currentIndex + 1) % images.length;
+      } else {
+        // 右へスワイプ → 前の画像
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+      }
+      showImage();
+    }
+  });
+
+// Escapeキーで閉じる
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    lightbox.style.display = "none";
+  }
+});
+
+const caption = document.getElementById("lightbox-caption");
+
+function showImage() {
+  const fig = images[currentIndex].closest("figure");
+  const cap = fig ? fig.querySelector("figcaption") : null;
+
+  lightboxImg.src = images[currentIndex].src;
+  caption.textContent = cap ? cap.textContent : "";
+
+  lightbox.style.display = "flex";
+}
+
+
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
+
+
+// 前の画像
+prevBtn.addEventListener("click", (e) => {
+  e.stopPropagation(); // ← これが重要
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage();
+});
+
+// 次の画像
+nextBtn.addEventListener("click", (e) => {
+  e.stopPropagation(); // ← これが重要
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage();
+});
+
+
+</script>
+
+
+</body>
+
+</html>
