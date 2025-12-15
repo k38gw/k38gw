@@ -20,10 +20,9 @@
     }
 
 .gallery figure {
-  height: 260px;
+  height: auto; /* ← ここを変更！ */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* ← space-between から変更 */
   padding: 8px;
   box-sizing: border-box;
   background: #fff;
@@ -35,7 +34,7 @@
 
 .gallery img {
   width: 100%;
-  max-height: calc(100% - 1.8em); /* キャプション分を差し引く */
+  height: auto; /* ← ここが重要！ */
   object-fit: contain;
   display: block;
 }
@@ -45,7 +44,6 @@
   font-size: 0.85em;
   color: #444;
   line-height: 1.2em;
-  min-height: 1.2em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -312,5 +310,6 @@
 
 </body>
 </html>
+
 
 
