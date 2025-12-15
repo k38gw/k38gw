@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css">
 
   <!-- works専用CSS（ギャラリー・ライトボックス） -->
-  <style>
+    <style>
     /* --- ギャラリー --- */
     .gallery {
       display: grid;
@@ -51,54 +51,69 @@
       z-index: 999;
     }
 
-  #lightbox-content {
-  max-width: 90vw;
-  max-height: 90vh;
-  text-align: center;
-  position: relative;
-}
+    #lightbox-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      text-align: center;
+      position: relative;
+    }
 
-#lightbox-img {
-  max-width: 100%;
-  max-height: 80vh;
-  height: auto;
-  width: auto;
-}
+    #lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      height: auto;
+      width: auto;
+    }
 
-/* キャプションは画像の下に独立 */
-#lightbox-caption {
-  color: white;
-  margin-top: 10px;
-  font-size: 1em;
-}
+    /* --- キャプション（画像の下に独立） --- */
+    #lightbox-caption {
+      color: white;
+      margin-top: 10px;
+      font-size: 1em;
+    }
 
-/* 矢印を画像の左右に固定 */
-.nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2.5rem;
-  cursor: pointer;
-  padding: 10px;
-  user-select: none;
-}
+    /* --- 矢印（画像の左右に固定） --- */
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.45); /* ← 白背景でも見える */
+      border: none;
+      color: white;
+      font-size: 2.2rem;
+      cursor: pointer;
+      padding: 10px 14px;
+      border-radius: 50%;
+      user-select: none;
+    }
 
-#prev-btn {
-  left: 20px;
-}
+    #prev-btn {
+      left: -55px;
+    }
 
-#next-btn {
-  right: 20px;
-}
+    #next-btn {
+      right: -55px;
+    }
 
-.nav-btn:hover {
-  opacity: 0.7;
-}
+    .nav-btn:hover {
+      opacity: 0.75;
+    }
 
+    /* --- スマホでは矢印を画像の上に重ねる --- */
+    @media (max-width: 600px) {
+      #prev-btn {
+        left: 10px;
+      }
+      #next-btn {
+        right: 10px;
+      }
+      .nav-btn {
+        font-size: 1.8rem;
+        padding: 8px 10px;
+      }
+    }
   </style>
+
 </head>
 
 <body>
@@ -293,3 +308,4 @@
 
 </body>
 </html>
+
