@@ -23,7 +23,7 @@
   height: 260px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start; /* ← space-between から変更 */
   padding: 8px;
   box-sizing: border-box;
   background: #fff;
@@ -34,9 +34,9 @@
 }
 
 .gallery img {
-  max-height: 100%;
-  object-fit: contain;
   width: 100%;
+  max-height: calc(100% - 1.8em); /* キャプション分を差し引く */
+  object-fit: contain;
   display: block;
 }
 
@@ -45,6 +45,7 @@
   font-size: 0.85em;
   color: #444;
   line-height: 1.2em;
+  min-height: 1.2em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -311,4 +312,5 @@
 
 </body>
 </html>
+
 
