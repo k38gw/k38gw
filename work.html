@@ -71,4 +71,169 @@
       margin-top: 10px;
       font-size: 1em;
       position: relative;
-      padding: 0 60px
+      padding: 0 60px; /* ← 左右に矢印のスペースを確保 */
+      min-height: 1.5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 左矢印（固定位置） */
+    #prev-btn {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* 右矢印（固定位置） */
+    #next-btn {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* ボタン共通 */
+    .nav-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 5px;
+      user-select: none;
+    }
+
+    .nav-btn:hover {
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h3>works</h3>
+
+  <div class="gallery">
+
+    <!-- ここから作品一覧（あなたの元コードそのまま） -->
+    <figure><img src="img/001.png"><figcaption>こども未来計画表紙カット</figcaption></figure>
+    <figure><img src="img/002.JPEG"><figcaption>風船</figcaption></figure>
+    <figure><img src="img/003.png"><figcaption>発達障がい児者支援計画表紙カット</figcaption></figure>
+    <figure><img src="img/004.JPEG"><figcaption>女の子</figcaption></figure>
+    <figure><img src="img/005.JPEG"><figcaption>ぱんだ通信</figcaption></figure>
+    <figure><img src="img/006.JPEG"><figcaption>2025年賀状</figcaption></figure>
+    <figure><img src="img/007.png"><figcaption>共済会誌新年号表紙カット</figcaption></figure>
+    <figure><img src="img/008.png"><figcaption>おかぼうくん（防災）</figcaption></figure>
+    <figure><img src="img/009.png"><figcaption>なおけちゃん</figcaption></figure>
+    <figure><img src="img/010.png"><figcaption>おかぼうくん（体操服）</figcaption></figure>
+    <figure><img src="img/010-1.png"><figcaption>おかぼうくん（体操服）</figcaption></figure>
+    <figure><img src="img/011.png"><figcaption>おかフラちゃん</figcaption></figure>
+    <figure><img src="img/012.png"><figcaption>おかぼうくん（探検服）</figcaption></figure>
+    <figure><img src="img/013.png"><figcaption>トモヒロとユイ</figcaption></figure>
+    <figure><img src="img/014.png"><figcaption>子育て広場</figcaption></figure>
+    <figure><img src="img/015.png"><figcaption>ラグビーチーム募集ちらしカット</figcaption></figure>
+    <figure><img src="img/015-1.png"><figcaption>ラグビーチーム募集ちらしカット</figcaption></figure>
+    <figure><img src="img/016.png"><figcaption>ふくエネロゴ（不採用）</figcaption></figure>
+    <figure><img src="img/017.png"><figcaption>ふくエネロゴ（不採用）</figcaption></figure>
+    <figure><img src="img/018.png"><figcaption>カフェ研修室</figcaption></figure>
+
+  </div>
+
+  <!-- ライトボックス -->
+  <div id="lightbox">
+    <div id="lightbox-content">
+      <img id="lightbox-img" src="">
+      <p id="lightbox-caption">
+        <button id="prev-btn" class="nav-btn">＜</button>
+        <span id="caption-text"></span>
+        <button id="next-btn" class="nav-btn">＞</button>
+      </p>
+    </div>
+  </div>
+
+  <hr>
+  <a href="index.html">home</a>
+
+  <!-- JavaScript（矢印固定版） -->
+  <script>
+    const images = Array.from(document.querySelectorAll(".gallery img"));
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const captionText = document.getElementById("caption-text");
+
+    let currentIndex = 0;
+
+    images.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        currentIndex = index;
+        showImage();
+      });
+    });
+
+    function showImage() {
+      const fig = images[currentIndex].closest("figure");
+      const cap = fig ? fig.querySelector("figcaption") : null;
+
+      lightboxImg.src = images[currentIndex].src;
+      captionText.textContent = cap ? cap.textContent : "";
+
+      lightbox.style.display = "flex";
+    }
+
+    lightbox.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (lightbox.style.display !== "flex") return;
+
+      if (e.key === "ArrowRight") {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage();
+      }
+      if (e.key === "ArrowLeft") {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage();
+      }
+      if (e.key === "Escape") {
+        lightbox.style.display = "none";
+      }
+    });
+
+    let startX = 0;
+
+    lightbox.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    lightbox.addEventListener("touchend", (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const diff = endX - startX;
+
+      if (Math.abs(diff) > 50) {
+        if (diff < 0) {
+          currentIndex = (currentIndex + 1) % images.length;
+        } else {
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+        }
+        showImage();
+      }
+    });
+
+    document.getElementById("prev-btn").addEventListener("click", (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage();
+    });
+
+    document.getElementById("next-btn").addEventListener("click", (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage();
+    });
+  </script>
+
+</body>
+</html>
