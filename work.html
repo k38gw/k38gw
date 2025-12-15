@@ -1,120 +1,109 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 
 <head>
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="style.css">
+  <title>works</title>
 
-    <title>
-      works
-    </title>
-    
-    <style>
+  <!-- 共通CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- works専用CSS（ギャラリー・ライトボックスのみ） -->
+  <style>
+    /* --- ギャラリー --- */
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 14px;
+      margin-bottom: 30px;
     }
+
+    .gallery figure {
+      margin: 0;
+    }
+
     .gallery img {
       width: 100%;
       height: auto;
       display: block;
+      border-radius: 4px; /* やさしい印象 */
     }
 
-    
- .gallery figure {
-  display: flex;
-  flex-direction: column;   /* 縦に並べる */
-  justify-content: flex-end; /* 下に揃える */
-  margin: 0;
-}
+    .gallery figcaption {
+      text-align: center;
+      font-size: 0.85em;
+      margin-top: 6px;
+      color: #444;
+    }
 
-.gallery img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+    /* --- ライトボックス --- */
+    #lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
 
-.gallery figcaption {
-  text-align: center;
-  font-size: 0.9em;
-  margin-top: 5px;
-}
+    #lightbox-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      text-align: center;
+    }
 
+    #lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      height: auto;
+      width: auto;
+    }
 
+    #lightbox-caption {
+      color: white;
+      margin-top: 10px;
+      font-size: 1em;
+    }
 
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+      padding: 10px;
+      user-select: none;
+    }
 
-#lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
+    #prev-btn {
+      left: 20px;
+    }
 
-#lightbox-content {
-  max-width: 90vw;   /* 画面幅の90%以内 */
-  max-height: 90vh;  /* 画面高さの90%以内 */
-  text-align: center;
-}
+    #next-btn {
+      right: 20px;
+    }
 
-#lightbox-img {
-  max-width: 100%;   /* lightbox-content の中で収まる */
-  max-height: 80vh;  /* キャプション分の余白を確保 */
-  height: auto;
-  width: auto;
-}
-
-#lightbox-caption {
-  color: white;
-  margin-top: 10px;
-  font-size: 1em;
-}
-
-
-.nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2.5rem;
-  cursor: pointer;
-  padding: 10px;
-  user-select: none;
-}
-
-#prev-btn {
-  left: 20px;
-}
-
-#next-btn {
-  right: 20px;
-}
-
-.nav-btn:hover {
-  opacity: 0.7;
-}
-
-
-
-</style>
-
+    .nav-btn:hover {
+      opacity: 0.7;
+    }
+  </style>
 </head>
 
 <body>
-<center>
-<h3>works</h3>
-    
-    <div class="gallery">
+
+  <h3>works</h3>
+
+  <div class="gallery">
+    <!-- あなたの figure 群をそのままここに -->
 
       <figure>
         <img src="img/001.png" alt="image">
@@ -122,7 +111,7 @@
       </figure>   
       <figure>
         <img src="img/002.JPEG" alt="image">
-        <figcaption>風船</figcaption>
+        <figcaption>風船と女の子</figcaption>
       </figure>
       <figure>
         <img src="img/003.png" alt="image">
@@ -198,35 +187,24 @@
       </figure>
 
 
-
-
-      
-    </div>
-
-<!-- 拡大表示用の枠 -->
-
-<div id="lightbox">
-  <button id="prev-btn" class="nav-btn">＜</button>
-
-  <div id="lightbox-content">
-    <img id="lightbox-img" src="">
-    <p id="lightbox-caption"></p>
+    
   </div>
 
-  <button id="next-btn" class="nav-btn">＞</button>
-</div>
+  <!-- ライトボックス -->
+  <div id="lightbox">
+    <button id="prev-btn" class="nav-btn">＜</button>
+    <div id="lightbox-content">
+      <img id="lightbox-img" src="">
+      <p id="lightbox-caption"></p>
+    </div>
+    <button id="next-btn" class="nav-btn">＞</button>
+  </div>
 
+  <hr>
+  <a href="index.html">home</a>
 
+  <script>
 
-    
-    <hr>
-    <a href="index.html">home</a>
-    
-    </center>
-
-
-
-<script>
   const images = Array.from(document.querySelectorAll(".gallery img"));
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
@@ -325,14 +303,8 @@ nextBtn.addEventListener("click", (e) => {
   currentIndex = (currentIndex + 1) % images.length;
   showImage();
 });
-
-
-</script>
-
+   
+  </script>
 
 </body>
-
-
 </html>
-
-
