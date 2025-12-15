@@ -66,31 +66,44 @@
     }
 
     /* キャプション＋矢印を横並びに */
-    #lightbox-caption {
-      color: white;
-      margin-top: 10px;
-      font-size: 1em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-    }
+#lightbox-caption {
+  color: white;
+  margin-top: 10px;
+  font-size: 1em;
+  position: relative; /* ← これが必要 */
+  padding: 0 60px;    /* ← 矢印のスペースを確保 */
+}
 
-    /* 矢印ボタン（キャプション内に配置） */
-    .nav-btn {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
-      padding: 5px;
-      user-select: none;
-      position: static;
-    }
+/* 左矢印 */
+#prev-btn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-    .nav-btn:hover {
-      opacity: 0.7;
-    }
+/* 右矢印 */
+#next-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ボタンの共通スタイル */
+.nav-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 5px;
+  user-select: none;
+}
+
+.nav-btn:hover {
+  opacity: 0.7;
+}
   </style>
 </head>
 
@@ -280,4 +293,5 @@
 
 </body>
 </html>
+
 
