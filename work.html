@@ -107,14 +107,27 @@
 .gallery figure {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* ← 画像もキャプションも下揃え */
-  height: 100%;
+  height: 260px; /* ← セルの高さを固定（必要に応じて調整） */
+  overflow: hidden;
+}
+
+.gallery .img-wrap {
+  flex: 1;                 /* ← 画像エリアが残りの高さを埋める */
+  display: flex;
+  align-items: flex-end;   /* ← 画像を下揃えにする */
+  justify-content: center;
 }
 
 .gallery img {
-  width: 100%;
-  height: auto;
-  object-fit: contain; /* ← 画像が潰れない */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.gallery figcaption {
+  margin-top: 6px;
+  text-align: center;
+  font-size: 0.85em;
 }
      
 </style>
@@ -129,83 +142,83 @@
 
     <!-- ここから作品一覧（あなたの元コードをそのまま） -->
     <figure>
-      <img src="img/001.png" alt="image">
+      <div class="img-wrap"><img src="img/001.png" alt="image"></div>
       <figcaption>こども未来計画表紙カット</figcaption>
     </figure>
     <figure>
-      <img src="img/002.JPEG" alt="image">
+      <div class="img-wrap"><img src="img/002.JPEG" alt="image"></div>
       <figcaption>風船</figcaption>
     </figure>
     <figure>
-      <img src="img/003.png" alt="image">
+      <div class="img-wrap"><img src="img/003.png" alt="image"></div>
       <figcaption>発達障がい児者支援計画表紙カット</figcaption>
     </figure>
     <figure>
-      <img src="img/004.JPEG" alt="image">
+      <div class="img-wrap"><img src="img/004.JPEG" alt="image"></div>
       <figcaption>女の子</figcaption>
     </figure>
     <figure>
-      <img src="img/005.JPEG" alt="image">
+      <div class="img-wrap"><img src="img/005.JPEG" alt="image"></div>
       <figcaption>ぱんだ通信</figcaption>
     </figure>
     <figure>
-      <img src="img/006.JPEG" alt="image">
+      <div class="img-wrap"><img src="img/006.JPEG" alt="image"></div>
       <figcaption>2025年賀状</figcaption>
     </figure>
     <figure>
-      <img src="img/007.png" alt="image">
+      <div class="img-wrap"><img src="img/007.png" alt="image"></div>
       <figcaption>共済会誌新年号表紙カット</figcaption>
     </figure>
     <figure>
-      <img src="img/008.png" alt="image">
+      <div class="img-wrap"><img src="img/008.png" alt="image"></div>
       <figcaption>おかぼうくん（防災）</figcaption>
     </figure>
     <figure>
-      <img src="img/009.png" alt="image">
+      <div class="img-wrap"><img src="img/009.png" alt="image"></div>
       <figcaption>なおけちゃん</figcaption>
     </figure>
     <figure>
-      <img src="img/010.png" alt="image">
+      <div class="img-wrap"><img src="img/010.png" alt="image"></div>
       <figcaption>おかぼうくん（体操服）</figcaption>
     </figure>
     <figure>
-      <img src="img/010-1.png" alt="image">
+      <div class="img-wrap"><img src="img/010-1.png" alt="image"></div>
       <figcaption>おかぼうくん（体操服）</figcaption>
     </figure>
     <figure>
-      <img src="img/011.png" alt="image">
+      <div class="img-wrap"><img src="img/011.png" alt="image"></div>
       <figcaption>おかフラちゃん</figcaption>
     </figure>
     <figure>
-      <img src="img/012.png" alt="image">
+      <div class="img-wrap"><img src="img/012.png" alt="image"></div>
       <figcaption>おかぼうくん（探検服）</figcaption>
     </figure>
     <figure>
-      <img src="img/013.png" alt="image">
+      <div class="img-wrap"><img src="img/013.png" alt="image"></div>
       <figcaption>トモヒロとユイ</figcaption>
     </figure>
     <figure>
-      <img src="img/014.png" alt="image">
+      <div class="img-wrap"><img src="img/014.png" alt="image"></div>
       <figcaption>子育て広場</figcaption>
     </figure>
     <figure>
-      <img src="img/015.png" alt="image">
+      <div class="img-wrap"><img src="img/015.png" alt="image"></div>
       <figcaption>ラグビーチーム募集ちらしカット</figcaption>
     </figure>
     <figure>
-      <img src="img/015-1.png" alt="image">
+      <div class="img-wrap"><img src="img/015-1.png" alt="image"></div>
       <figcaption>ラグビーチーム募集ちらしカット</figcaption>
     </figure>
     <figure>
-      <img src="img/016.png" alt="image">
+      <div class="img-wrap"><img src="img/016.png" alt="image"></div>
       <figcaption>ふくエネロゴ（不採用）</figcaption>
     </figure>
     <figure>
-      <img src="img/017.png" alt="image">
+      <div class="img-wrap"><img src="img/017.png" alt="image"></div>
       <figcaption>ふくエネロゴ（不採用）</figcaption>
     </figure>
     <figure>
-      <img src="img/018.png" alt="image">
+      <div class="img-wrap"><img src="img/018.png" alt="image"></div>
       <figcaption>カフェ研修室</figcaption>
     </figure>
 
@@ -313,6 +326,7 @@
 
 </body>
 </html>
+
 
 
 
