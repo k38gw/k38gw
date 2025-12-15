@@ -4,13 +4,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <link rel="stylesheet" href="style.css">
   <title>works</title>
 
   <!-- 共通CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- works専用CSS（ギャラリー・ライトボックスのみ） -->
+  <!-- works専用CSS（ギャラリー・ライトボックス） -->
   <style>
     /* --- ギャラリー --- */
     .gallery {
@@ -28,7 +27,7 @@
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 4px; /* やさしい印象 */
+      border-radius: 4px;
     }
 
     .gallery figcaption {
@@ -56,6 +55,7 @@
       max-width: 90vw;
       max-height: 90vh;
       text-align: center;
+      position: relative;
     }
 
     #lightbox-img {
@@ -65,31 +65,27 @@
       width: auto;
     }
 
+    /* キャプション＋矢印を横並びに */
     #lightbox-caption {
       color: white;
       margin-top: 10px;
       font-size: 1em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
     }
 
+    /* 矢印ボタン（キャプション内に配置） */
     .nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
       background: none;
       border: none;
       color: white;
-      font-size: 2.5rem;
+      font-size: 2rem;
       cursor: pointer;
-      padding: 10px;
+      padding: 5px;
       user-select: none;
-    }
-
-    #prev-btn {
-      left: 20px;
-    }
-
-    #next-btn {
-      right: 20px;
+      position: static;
     }
 
     .nav-btn:hover {
@@ -103,207 +99,183 @@
   <h3>works</h3>
 
   <div class="gallery">
-    <!-- あなたの figure 群をそのままここに -->
 
-      <figure>
-        <img src="img/001.png" alt="image">
-        <figcaption>こども未来計画表紙カット</figcaption>
-      </figure>   
-      <figure>
-        <img src="img/002.JPEG" alt="image">
-        <figcaption>風船と女の子</figcaption>
-      </figure>
-      <figure>
-        <img src="img/003.png" alt="image">
-        <figcaption>発達障がい児者支援計画表紙カット</figcaption>
-      </figure>
-      <figure>
-        <img src="img/004.JPEG" alt="image">
-        <figcaption>女の子</figcaption>
-      </figure>
-      <figure>
-        <img src="img/005.JPEG" alt="image">
-        <figcaption>ぱんだ通信</figcaption>
-      </figure>
-      <figure>
-        <img src="img/006.JPEG" alt="image">
-        <figcaption>2025年賀状</figcaption>
-      </figure>
-      <figure>
-        <img src="img/007.png" alt="image">
-        <figcaption>共済会誌新年号表紙カット</figcaption>
-      </figure>
-      <figure>
-        <img src="img/008.png" alt="image">
-        <figcaption>おかぼうくん（防災）</figcaption>
-      </figure>
-      <figure>
-        <img src="img/009.png" alt="image">
-        <figcaption>なおけちゃん</figcaption>
-      </figure>
-      <figure>
-        <img src="img/010.png" alt="image">
-        <figcaption>おかぼうくん（体操服）</figcaption>
-      </figure>
-      <figure>
-        <img src="img/010-1.png" alt="image">
-        <figcaption>おかぼうくん（体操服）</figcaption>
-      </figure>
-      <figure>
-        <img src="img/011.png" alt="image">
-        <figcaption>おかフラちゃん</figcaption>
-      </figure>
-      <figure>
-        <img src="img/012.png" alt="image">
-        <figcaption>おかぼうくん（探検服）</figcaption>
-      </figure>
-      <figure>
-        <img src="img/013.png" alt="image">
-        <figcaption>トモヒロとユイ</figcaption>
-      </figure>
-      <figure>
-        <img src="img/014.png" alt="image">
-        <figcaption>子育て広場</figcaption>
-      </figure>
-      <figure>
-        <img src="img/015.png" alt="image">
-        <figcaption>ラグビーチーム募集ちらしカット</figcaption>
-      </figure>
-      <figure>
-        <img src="img/015-1.png" alt="image">
-        <figcaption>ラグビーチーム募集ちらしカット</figcaption>
-      </figure>
-      <figure>
-        <img src="img/016.png" alt="image">
-        <figcaption>ふくエネロゴ（不採用）</figcaption>
-      </figure>
-      <figure>
-        <img src="img/017.png" alt="image">
-        <figcaption>ふくエネロゴ（不採用）</figcaption>
-      </figure>
-      <figure>
-        <img src="img/018.png" alt="image">
-        <figcaption>カフェ研修室</figcaption>
-      </figure>
+    <!-- ここから作品一覧（あなたの元コードをそのまま） -->
+    <figure>
+      <img src="img/001.png" alt="image">
+      <figcaption>こども未来計画表紙カット</figcaption>
+    </figure>
+    <figure>
+      <img src="img/002.JPEG" alt="image">
+      <figcaption>風船</figcaption>
+    </figure>
+    <figure>
+      <img src="img/003.png" alt="image">
+      <figcaption>発達障がい児者支援計画表紙カット</figcaption>
+    </figure>
+    <figure>
+      <img src="img/004.JPEG" alt="image">
+      <figcaption>女の子</figcaption>
+    </figure>
+    <figure>
+      <img src="img/005.JPEG" alt="image">
+      <figcaption>ぱんだ通信</figcaption>
+    </figure>
+    <figure>
+      <img src="img/006.JPEG" alt="image">
+      <figcaption>2025年賀状</figcaption>
+    </figure>
+    <figure>
+      <img src="img/007.png" alt="image">
+      <figcaption>共済会誌新年号表紙カット</figcaption>
+    </figure>
+    <figure>
+      <img src="img/008.png" alt="image">
+      <figcaption>おかぼうくん（防災）</figcaption>
+    </figure>
+    <figure>
+      <img src="img/009.png" alt="image">
+      <figcaption>なおけちゃん</figcaption>
+    </figure>
+    <figure>
+      <img src="img/010.png" alt="image">
+      <figcaption>おかぼうくん（体操服）</figcaption>
+    </figure>
+    <figure>
+      <img src="img/010-1.png" alt="image">
+      <figcaption>おかぼうくん（体操服）</figcaption>
+    </figure>
+    <figure>
+      <img src="img/011.png" alt="image">
+      <figcaption>おかフラちゃん</figcaption>
+    </figure>
+    <figure>
+      <img src="img/012.png" alt="image">
+      <figcaption>おかぼうくん（探検服）</figcaption>
+    </figure>
+    <figure>
+      <img src="img/013.png" alt="image">
+      <figcaption>トモヒロとユイ</figcaption>
+    </figure>
+    <figure>
+      <img src="img/014.png" alt="image">
+      <figcaption>子育て広場</figcaption>
+    </figure>
+    <figure>
+      <img src="img/015.png" alt="image">
+      <figcaption>ラグビーチーム募集ちらしカット</figcaption>
+    </figure>
+    <figure>
+      <img src="img/015-1.png" alt="image">
+      <figcaption>ラグビーチーム募集ちらしカット</figcaption>
+    </figure>
+    <figure>
+      <img src="img/016.png" alt="image">
+      <figcaption>ふくエネロゴ（不採用）</figcaption>
+    </figure>
+    <figure>
+      <img src="img/017.png" alt="image">
+      <figcaption>ふくエネロゴ（不採用）</figcaption>
+    </figure>
+    <figure>
+      <img src="img/018.png" alt="image">
+      <figcaption>カフェ研修室</figcaption>
+    </figure>
 
-
-    
   </div>
 
   <!-- ライトボックス -->
   <div id="lightbox">
-    <button id="prev-btn" class="nav-btn">＜</button>
     <div id="lightbox-content">
       <img id="lightbox-img" src="">
-      <p id="lightbox-caption"></p>
+      <p id="lightbox-caption">
+        <button id="prev-btn" class="nav-btn">＜</button>
+        <span id="caption-text"></span>
+        <button id="next-btn" class="nav-btn">＞</button>
+      </p>
     </div>
-    <button id="next-btn" class="nav-btn">＞</button>
   </div>
 
   <hr>
   <a href="index.html">home</a>
 
+  <!-- JavaScript（矢印位置変更に対応した最終版） -->
   <script>
+    const images = Array.from(document.querySelectorAll(".gallery img"));
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const captionText = document.getElementById("caption-text");
 
-  const images = Array.from(document.querySelectorAll(".gallery img"));
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
+    let currentIndex = 0;
 
-  let currentIndex = 0;
-
-  // 画像クリックで拡大
-  images.forEach((img, index) => {
-    img.addEventListener("click", () => {
-      currentIndex = index;
-      showImage();
+    images.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        currentIndex = index;
+        showImage();
+      });
     });
-  });
 
-  function showImage() {
-    lightboxImg.src = images[currentIndex].src;
-    lightbox.style.display = "flex";
-  }
+    function showImage() {
+      const fig = images[currentIndex].closest("figure");
+      const cap = fig ? fig.querySelector("figcaption") : null;
 
-  // 背景クリックで閉じる
-  lightbox.addEventListener("click", () => {
-    lightbox.style.display = "none";
-  });
+      lightboxImg.src = images[currentIndex].src;
+      captionText.textContent = cap ? cap.textContent : "";
 
-  // ← → キーで画像切り替え
-  document.addEventListener("keydown", (e) => {
-    if (lightbox.style.display !== "flex") return;
-
-    if (e.key === "ArrowRight") {
-      currentIndex = (currentIndex + 1) % images.length;
-      showImage();
+      lightbox.style.display = "flex";
     }
-    if (e.key === "ArrowLeft") {
+
+    lightbox.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (lightbox.style.display !== "flex") return;
+
+      if (e.key === "ArrowRight") {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage();
+      }
+      if (e.key === "ArrowLeft") {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage();
+      }
+      if (e.key === "Escape") {
+        lightbox.style.display = "none";
+      }
+    });
+
+    let startX = 0;
+
+    lightbox.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    lightbox.addEventListener("touchend", (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const diff = endX - startX;
+
+      if (Math.abs(diff) > 50) {
+        if (diff < 0) {
+          currentIndex = (currentIndex + 1) % images.length;
+        } else {
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+        }
+        showImage();
+      }
+    });
+
+    document.getElementById("prev-btn").addEventListener("click", (e) => {
+      e.stopPropagation();
       currentIndex = (currentIndex - 1 + images.length) % images.length;
       showImage();
-    }
-  });
+    });
 
-  // スマホのスワイプ対応
-  let startX = 0;
-
-  lightbox.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-  });
-
-  lightbox.addEventListener("touchend", (e) => {
-    const endX = e.changedTouches[0].clientX;
-    const diff = endX - startX;
-
-    if (Math.abs(diff) > 50) {
-      if (diff < 0) {
-        // 左へスワイプ → 次の画像
-        currentIndex = (currentIndex + 1) % images.length;
-      } else {
-        // 右へスワイプ → 前の画像
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-      }
+    document.getElementById("next-btn").addEventListener("click", (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % images.length;
       showImage();
-    }
-  });
-
-// Escapeキーで閉じる
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    lightbox.style.display = "none";
-  }
-});
-
-const caption = document.getElementById("lightbox-caption");
-
-function showImage() {
-  const fig = images[currentIndex].closest("figure");
-  const cap = fig ? fig.querySelector("figcaption") : null;
-
-  lightboxImg.src = images[currentIndex].src;
-  caption.textContent = cap ? cap.textContent : "";
-
-  lightbox.style.display = "flex";
-}
-
-
-const prevBtn = document.getElementById("prev-btn");
-const nextBtn = document.getElementById("next-btn");
-
-
-// 前の画像
-prevBtn.addEventListener("click", (e) => {
-  e.stopPropagation(); // ← これが重要
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  showImage();
-});
-
-// 次の画像
-nextBtn.addEventListener("click", (e) => {
-  e.stopPropagation(); // ← これが重要
-  currentIndex = (currentIndex + 1) % images.length;
-  showImage();
-});
-   
+    });
   </script>
 
 </body>
