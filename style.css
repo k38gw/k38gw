@@ -1,12 +1,13 @@
 /* 全体のフォントと基本レイアウト */
 body {
-  font-family: "Noto Sans JP", "Hiragino Sans", "Helvetica Neue",
-               Arial, sans-serif;
-  margin: 0;
-  padding: 24px;
+  font-family: "Noto Sans JP", "Hiragino Sans", Arial, sans-serif;
+  font-weight: 300;          /* ← Light（300）で細くてやさしい */
+  font-size: 15px;           /* ← 少し控えめで上品 */
+  padding: 15px;             /* ← ミニマルでちょうど良い余白 */
   text-align: center;
   line-height: 1.7;
   color: #333;
+  margin: 0;
 }
 
 /* 画像をスマホ幅にフィットさせる */
@@ -19,7 +20,7 @@ img {
 a {
   color: #333;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1.1em;          /* ← 控えめで読みやすい大きさ */
   display: block;
   margin: 12px 0;
 }
@@ -32,7 +33,7 @@ a:hover {
 /* スマホ向け微調整 */
 @media (max-width: 600px) {
   body {
-    padding: 16px;
-    font-size: 16px;
+    padding: 12px;
+    font-size: 15px;         /* ← スマホでも読みやすい */
   }
 }
