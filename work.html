@@ -107,27 +107,31 @@
 .gallery figure {
   display: flex;
   flex-direction: column;
-  height: 260px; /* ← セルの高さを固定（必要に応じて調整） */
-  overflow: hidden;
+  height: 260px; /* ← セルの高さを固定（調整可能） */
 }
 
+/* 画像エリア（残りの高さをすべて使う） */
 .gallery .img-wrap {
-  flex: 1;                 /* ← 画像エリアが残りの高さを埋める */
+  flex: 1;                 /* ← 画像エリアが残り全部を占める */
   display: flex;
   align-items: flex-end;   /* ← 画像を下揃えにする */
   justify-content: center;
+  overflow: hidden;
 }
 
+/* 画像は枠内に収める */
 .gallery img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
 }
 
+/* キャプションは画像のすぐ下に固定 */
 .gallery figcaption {
-  margin-top: 6px;
+  flex: 0 0 auto;
   text-align: center;
   font-size: 0.85em;
+  margin-top: 6px;
 }
      
 </style>
@@ -326,6 +330,7 @@
 
 </body>
 </html>
+
 
 
 
