@@ -22,32 +22,27 @@
 .gallery figure {
   display: flex;
   flex-direction: column;
-  height: 260px; /* セルの高さは固定 */
-}
-
-/* 画像エリア：最小高さだけ決める（縮まない） */
-.gallery .img-wrap {
-  min-height: 180px;        /* ← ここがポイント（固定ではなく最小値） */
-  flex: 1;                  /* ← 残り全部を使う */
-  display: flex;
-  align-items: flex-end;    /* ← 画像を下揃え */
-  justify-content: center;
+  height: 260px; /* ← セルの高さを固定（必要に応じて調整） */
   overflow: hidden;
 }
 
-/* 画像は最大サイズで表示（縮まない） */
+.gallery .img-wrap {
+  flex: 1;                 /* ← 画像エリアが残りの高さを埋める */
+  display: flex;
+  align-items: flex-end;   /* ← 画像を下揃えにする */
+  justify-content: center;
+}
+
 .gallery img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
 }
 
-/* キャプションは自然な高さ（固定しない） */
 .gallery figcaption {
+  margin-top: 6px;
   text-align: center;
   font-size: 0.85em;
-  margin-top: 6px;
-  color: #444;
 }
 
 
@@ -312,6 +307,7 @@
 
 </body>
 </html>
+
 
 
 
