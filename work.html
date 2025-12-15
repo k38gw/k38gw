@@ -205,12 +205,13 @@
   <hr>
   <a href="index.html">home</a>
 
-  <!-- JavaScript（矢印位置変更に対応した最終版） -->
+
+  <!-- JavaScript（安定版） -->
   <script>
     const images = Array.from(document.querySelectorAll(".gallery img"));
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
-    const captionText = document.getElementById("caption-text");
+    const caption = document.getElementById("lightbox-caption");
 
     let currentIndex = 0;
 
@@ -226,19 +227,19 @@
       const cap = fig ? fig.querySelector("figcaption") : null;
 
       lightboxImg.src = images[currentIndex].src;
-      captionText.textContent = cap ? cap.textContent : "";
+      caption.textContent = cap ? cap.textContent : "";
 
       lightbox.style.display = "flex";
     }
 
-lightbox.addEventListener("click", (e) => {
-  // 背景（lightbox 自体）をクリックしたときだけ閉じる
-  if (e.target === lightbox) {
-    lightbox.style.display = "none";
-  }
-});
+    /* 背景クリックで閉じる（矢印や画像では閉じない） */
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+      }
+    });
 
-
+    /* キーボード操作 */
     document.addEventListener("keydown", (e) => {
       if (lightbox.style.display !== "flex") return;
 
@@ -255,6 +256,7 @@ lightbox.addEventListener("click", (e) => {
       }
     });
 
+    /* スワイプ操作 */
     let startX = 0;
 
     lightbox.addEventListener("touchstart", (e) => {
@@ -275,6 +277,7 @@ lightbox.addEventListener("click", (e) => {
       }
     });
 
+    /* 矢印クリック */
     document.getElementById("prev-btn").addEventListener("click", (e) => {
       e.stopPropagation();
       currentIndex = (currentIndex - 1 + images.length) % images.length;
@@ -290,6 +293,7 @@ lightbox.addEventListener("click", (e) => {
 
 </body>
 </html>
+
 
 
 
