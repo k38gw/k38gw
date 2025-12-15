@@ -20,17 +20,30 @@
     }
 
     .gallery figure {
-      margin: 0;
+      display: flex;
+      flex-direction: column;
+      height: 260px; /* ← セルの高さを固定（調整可能） */
+    }
+
+    /* 画像エリア（残りの高さをすべて使う） */
+    .gallery .img-wrap {
+      flex: 1;
+      display: flex;
+      align-items: flex-end; /* ← 画像を下揃え */
+      justify-content: center;
+      overflow: hidden;
     }
 
     .gallery img {
-      width: 100%;
-      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
       display: block;
-      border-radius: 4px;
     }
 
+    /* キャプションは画像のすぐ下に固定 */
     .gallery figcaption {
+      flex: 0 0 auto;
       text-align: center;
       font-size: 0.85em;
       margin-top: 6px;
@@ -65,74 +78,43 @@
       width: auto;
     }
 
-    /* --- キャプション（画像の下に独立） --- */
     #lightbox-caption {
       color: white;
       margin-top: 10px;
       font-size: 1em;
     }
 
-/* 矢印を lightbox 全体に対して固定 */
-.nav-btn {
-  position: fixed;           /* ← これが最重要 */
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.45);
-  border: none;
-  color: white;
-  font-size: 2.2rem;
-  cursor: pointer;
-  padding: 10px 14px;
-  border-radius: 50%;
-  user-select: none;
-  z-index: 1000;             /* 画像より前に出す */
-}
+    /* --- 矢印（画面左右に固定） --- */
+    .nav-btn {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.45);
+      border: none;
+      color: white;
+      font-size: 2.2rem;
+      cursor: pointer;
+      padding: 10px 14px;
+      border-radius: 50%;
+      user-select: none;
+      z-index: 1000;
+    }
 
-#prev-btn {
-  left: 20px;                /* ← 画面左に固定 */
-}
+    #prev-btn {
+      left: 20px;
+    }
 
-#next-btn {
-  right: 20px;               /* ← 画面右に固定 */
-}
+    #next-btn {
+      right: 20px;
+    }
 
-/* スマホでは少し小さく */
-@media (max-width: 600px) {
-  .nav-btn {
-    font-size: 1.8rem;
-    padding: 8px 10px;
-  }
-}
+    @media (max-width: 600px) {
+      .nav-btn {
+        font-size: 1.8rem;
+        padding: 8px 10px;
+      }
+    }
 
-.gallery figure {
-  display: flex;
-  flex-direction: column;
-  height: 260px; /* ← セルの高さを固定（調整可能） */
-}
-
-/* 画像エリア（残りの高さをすべて使う） */
-.gallery .img-wrap {
-  flex: 1;                 /* ← 画像エリアが残り全部を占める */
-  display: flex;
-  align-items: flex-end;   /* ← 画像を下揃えにする */
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* 画像は枠内に収める */
-.gallery img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-/* キャプションは画像のすぐ下に固定 */
-.gallery figcaption {
-  flex: 0 0 auto;
-  text-align: center;
-  font-size: 0.85em;
-  margin-top: 6px;
-}
      
 </style>
 
@@ -330,6 +312,7 @@
 
 </body>
 </html>
+
 
 
 
