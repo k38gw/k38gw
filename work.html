@@ -104,7 +104,18 @@
   }
 }
 
-      
+.gallery figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* ← 画像は上、キャプションは下 */
+  height: 100%; /* ← grid のセルいっぱいに広がる */
+}
+
+.gallery img {
+  flex-grow: 1; /* ← 画像が余白を埋める */
+  object-fit: contain; /* ← 画像が潰れない */
+}
+     
 </style>
 
 </head>
@@ -301,5 +312,6 @@
 
 </body>
 </html>
+
 
 
