@@ -11,7 +11,7 @@
 
   <!-- works専用CSS（ギャラリー・ライトボックス） -->
     <style>
-    /* --- ギャラリー（元の自然な形） --- */
+    /* --- ギャラリー --- */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -19,14 +19,20 @@
       margin-bottom: 30px;
     }
 
+    /* ★ A案：figure の高さを固定して下揃えにする */
     .gallery figure {
+      height: 260px;                 /* ← セルの高さ固定 */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;     /* ← 下揃えの決め手 */
       margin: 0;
       text-align: center;
     }
 
     .gallery img {
-      width: 100%;
-      height: auto;   /* ← 画像は最大サイズで表示される */
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;           /* ← 画像が縮むがトリミングされない */
       display: block;
     }
 
@@ -298,6 +304,7 @@
 
 </body>
 </html>
+
 
 
 
