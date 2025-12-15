@@ -11,7 +11,7 @@
 
   <!-- works専用CSS（ギャラリー・ライトボックス） -->
     <style>
-    /* --- ギャラリー（元の自然な形） --- */
+    /* --- ギャラリー --- */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -19,22 +19,41 @@
       margin-bottom: 30px;
     }
 
+    /* figure をセルとして固定高さにする場合の調整 */
     .gallery figure {
+      height: 260px;                 /* セルの高さ固定 */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;   /* 画像を上に、キャプションは下に */
       margin: 0;
       text-align: center;
+      padding: 8px;                  /* 内側に余白を入れると見栄えが良い */
+      box-sizing: border-box;
+      background: #fff;
+      border-radius: 4px;
+      overflow: hidden;
     }
 
-    .gallery img {
-      width: 100%;
-      height: auto;   /* ← 画像は最大サイズで表示される */
-      display: block;
-    }
-
+    /* キャプションの高さを想定して画像の最大高さを調整する */
     .gallery figcaption {
       margin-top: 6px;
       font-size: 0.85em;
       color: #444;
       line-height: 1.2em;
+      height: 1.2em;                  /* キャプション行の高さを固定 */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* 画像はキャプション領域を除いた高さに収める */
+    .gallery img {
+      max-width: 100%;
+      /* figure の高さからキャプション領域と上下パディングを差し引く */
+      max-height: calc(100% - (1.2em + 6px + 16px)); /* キャプション高さ + margin-top + figure padding */
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
     }
 
     /* --- ライトボックス --- */
@@ -298,4 +317,5 @@
 
 </body>
 </html>
+
 
