@@ -231,9 +231,13 @@
       lightbox.style.display = "flex";
     }
 
-    lightbox.addEventListener("click", () => {
-      lightbox.style.display = "none";
-    });
+lightbox.addEventListener("click", (e) => {
+  // 背景（lightbox 自体）をクリックしたときだけ閉じる
+  if (e.target === lightbox) {
+    lightbox.style.display = "none";
+  }
+});
+
 
     document.addEventListener("keydown", (e) => {
       if (lightbox.style.display !== "flex") return;
@@ -286,6 +290,7 @@
 
 </body>
 </html>
+
 
 
 
