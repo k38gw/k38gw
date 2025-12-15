@@ -9,7 +9,7 @@
   <!-- 共通CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- works専用CSS -->
+  <!-- works専用CSS（ギャラリー・ライトボックス） -->
   <style>
     /* --- ギャラリー --- */
     .gallery {
@@ -65,36 +65,18 @@
       width: auto;
     }
 
-    /* --- キャプション＋矢印（矢印固定） --- */
+    /* キャプション＋矢印を横並びに */
     #lightbox-caption {
       color: white;
       margin-top: 10px;
       font-size: 1em;
-      position: relative;
-      padding: 0 60px; /* ← 左右に矢印のスペースを確保 */
-      min-height: 1.5em;
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 20px;
     }
 
-    /* 左矢印（固定位置） */
-    #prev-btn {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    /* 右矢印（固定位置） */
-    #next-btn {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    /* ボタン共通 */
+    /* 矢印ボタン（キャプション内に配置） */
     .nav-btn {
       background: none;
       border: none;
@@ -103,6 +85,7 @@
       cursor: pointer;
       padding: 5px;
       user-select: none;
+      position: static;
     }
 
     .nav-btn:hover {
@@ -117,27 +100,87 @@
 
   <div class="gallery">
 
-    <!-- ここから作品一覧（あなたの元コードそのまま） -->
-    <figure><img src="img/001.png"><figcaption>こども未来計画表紙カット</figcaption></figure>
-    <figure><img src="img/002.JPEG"><figcaption>風船</figcaption></figure>
-    <figure><img src="img/003.png"><figcaption>発達障がい児者支援計画表紙カット</figcaption></figure>
-    <figure><img src="img/004.JPEG"><figcaption>女の子</figcaption></figure>
-    <figure><img src="img/005.JPEG"><figcaption>ぱんだ通信</figcaption></figure>
-    <figure><img src="img/006.JPEG"><figcaption>2025年賀状</figcaption></figure>
-    <figure><img src="img/007.png"><figcaption>共済会誌新年号表紙カット</figcaption></figure>
-    <figure><img src="img/008.png"><figcaption>おかぼうくん（防災）</figcaption></figure>
-    <figure><img src="img/009.png"><figcaption>なおけちゃん</figcaption></figure>
-    <figure><img src="img/010.png"><figcaption>おかぼうくん（体操服）</figcaption></figure>
-    <figure><img src="img/010-1.png"><figcaption>おかぼうくん（体操服）</figcaption></figure>
-    <figure><img src="img/011.png"><figcaption>おかフラちゃん</figcaption></figure>
-    <figure><img src="img/012.png"><figcaption>おかぼうくん（探検服）</figcaption></figure>
-    <figure><img src="img/013.png"><figcaption>トモヒロとユイ</figcaption></figure>
-    <figure><img src="img/014.png"><figcaption>子育て広場</figcaption></figure>
-    <figure><img src="img/015.png"><figcaption>ラグビーチーム募集ちらしカット</figcaption></figure>
-    <figure><img src="img/015-1.png"><figcaption>ラグビーチーム募集ちらしカット</figcaption></figure>
-    <figure><img src="img/016.png"><figcaption>ふくエネロゴ（不採用）</figcaption></figure>
-    <figure><img src="img/017.png"><figcaption>ふくエネロゴ（不採用）</figcaption></figure>
-    <figure><img src="img/018.png"><figcaption>カフェ研修室</figcaption></figure>
+    <!-- ここから作品一覧（あなたの元コードをそのまま） -->
+    <figure>
+      <img src="img/001.png" alt="image">
+      <figcaption>こども未来計画表紙カット</figcaption>
+    </figure>
+    <figure>
+      <img src="img/002.JPEG" alt="image">
+      <figcaption>風船</figcaption>
+    </figure>
+    <figure>
+      <img src="img/003.png" alt="image">
+      <figcaption>発達障がい児者支援計画表紙カット</figcaption>
+    </figure>
+    <figure>
+      <img src="img/004.JPEG" alt="image">
+      <figcaption>女の子</figcaption>
+    </figure>
+    <figure>
+      <img src="img/005.JPEG" alt="image">
+      <figcaption>ぱんだ通信</figcaption>
+    </figure>
+    <figure>
+      <img src="img/006.JPEG" alt="image">
+      <figcaption>2025年賀状</figcaption>
+    </figure>
+    <figure>
+      <img src="img/007.png" alt="image">
+      <figcaption>共済会誌新年号表紙カット</figcaption>
+    </figure>
+    <figure>
+      <img src="img/008.png" alt="image">
+      <figcaption>おかぼうくん（防災）</figcaption>
+    </figure>
+    <figure>
+      <img src="img/009.png" alt="image">
+      <figcaption>なおけちゃん</figcaption>
+    </figure>
+    <figure>
+      <img src="img/010.png" alt="image">
+      <figcaption>おかぼうくん（体操服）</figcaption>
+    </figure>
+    <figure>
+      <img src="img/010-1.png" alt="image">
+      <figcaption>おかぼうくん（体操服）</figcaption>
+    </figure>
+    <figure>
+      <img src="img/011.png" alt="image">
+      <figcaption>おかフラちゃん</figcaption>
+    </figure>
+    <figure>
+      <img src="img/012.png" alt="image">
+      <figcaption>おかぼうくん（探検服）</figcaption>
+    </figure>
+    <figure>
+      <img src="img/013.png" alt="image">
+      <figcaption>トモヒロとユイ</figcaption>
+    </figure>
+    <figure>
+      <img src="img/014.png" alt="image">
+      <figcaption>子育て広場</figcaption>
+    </figure>
+    <figure>
+      <img src="img/015.png" alt="image">
+      <figcaption>ラグビーチーム募集ちらしカット</figcaption>
+    </figure>
+    <figure>
+      <img src="img/015-1.png" alt="image">
+      <figcaption>ラグビーチーム募集ちらしカット</figcaption>
+    </figure>
+    <figure>
+      <img src="img/016.png" alt="image">
+      <figcaption>ふくエネロゴ（不採用）</figcaption>
+    </figure>
+    <figure>
+      <img src="img/017.png" alt="image">
+      <figcaption>ふくエネロゴ（不採用）</figcaption>
+    </figure>
+    <figure>
+      <img src="img/018.png" alt="image">
+      <figcaption>カフェ研修室</figcaption>
+    </figure>
 
   </div>
 
@@ -156,7 +199,7 @@
   <hr>
   <a href="index.html">home</a>
 
-  <!-- JavaScript（矢印固定版） -->
+  <!-- JavaScript（矢印位置変更に対応した最終版） -->
   <script>
     const images = Array.from(document.querySelectorAll(".gallery img"));
     const lightbox = document.getElementById("lightbox");
