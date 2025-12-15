@@ -72,47 +72,40 @@
       font-size: 1em;
     }
 
-    /* --- 矢印（画像の左右に固定） --- */
-    .nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.45); /* ← 白背景でも見える */
-      border: none;
-      color: white;
-      font-size: 2.2rem;
-      cursor: pointer;
-      padding: 10px 14px;
-      border-radius: 50%;
-      user-select: none;
-    }
+/* 矢印を lightbox 全体に対して固定 */
+.nav-btn {
+  position: fixed;           /* ← これが最重要 */
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  color: white;
+  font-size: 2.2rem;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 50%;
+  user-select: none;
+  z-index: 1000;             /* 画像より前に出す */
+}
 
-    #prev-btn {
-      left: -55px;
-    }
+#prev-btn {
+  left: 20px;                /* ← 画面左に固定 */
+}
 
-    #next-btn {
-      right: -55px;
-    }
+#next-btn {
+  right: 20px;               /* ← 画面右に固定 */
+}
 
-    .nav-btn:hover {
-      opacity: 0.75;
-    }
+/* スマホでは少し小さく */
+@media (max-width: 600px) {
+  .nav-btn {
+    font-size: 1.8rem;
+    padding: 8px 10px;
+  }
+}
 
-    /* --- スマホでは矢印を画像の上に重ねる --- */
-    @media (max-width: 600px) {
-      #prev-btn {
-        left: 10px;
-      }
-      #next-btn {
-        right: 10px;
-      }
-      .nav-btn {
-        font-size: 1.8rem;
-        padding: 8px 10px;
-      }
-    }
-  </style>
+      
+</style>
 
 </head>
 
@@ -308,4 +301,5 @@
 
 </body>
 </html>
+
 
