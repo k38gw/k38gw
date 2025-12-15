@@ -1,9 +1,13 @@
 /* 全体のフォントと基本レイアウト */
 body {
-  font-family: "Noto Sans JP", "Hiragino Sans", Arial, sans-serif;
-  font-weight: 300;          /* ← Light（300）で細くてやさしい */
-  font-size: 15px;           /* ← 少し控えめで上品 */
-  padding: 15px;             /* ← ミニマルでちょうど良い余白 */
+  font-family: 
+    "Hiragino Sans",
+    "Yu Gothic", "YuGothic",
+    "Meiryo",
+    sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 15px;
   text-align: center;
   line-height: 1.7;
   color: #333;
@@ -16,16 +20,15 @@ img {
   height: auto;
 }
 
-/* テキストリンク（ボタン風にしないミニマル版） */
+/* テキストリンク（ミニマル） */
 a {
   color: #333;
   text-decoration: none;
-  font-size: 1.1em;          /* ← 控えめで読みやすい大きさ */
+  font-size: 1.1em;
   display: block;
   margin: 12px 0;
 }
 
-/* PC での軽いホバー効果（ミニマル） */
 a:hover {
   opacity: 0.7;
 }
@@ -34,6 +37,6 @@ a:hover {
 @media (max-width: 600px) {
   body {
     padding: 12px;
-    font-size: 15px;         /* ← スマホでも読みやすい */
+    font-size: 15px;
   }
 }
