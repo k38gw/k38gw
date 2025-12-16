@@ -17,16 +17,16 @@
     "Roboto Mono",
     monospace;
   width: 100%;
-  margin: 2rem auto;
+  margin: 2rem 0;          /* ← 左右の余白を完全にゼロに */
   border-collapse: collapse;
   text-align: left;
-  line-height: 1.05;
+  line-height: 1.05;       /* ← 行間を詰めて統一 */
 }
 
-/* Year / Content / File のセル */
+/* セルの余白（横方向を最小化） */
 .poster-table th,
 .poster-table td {
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0.25rem;   /* ← 左右を詰める */
   border-bottom: 1px solid #ddd;
 }
 
@@ -36,30 +36,36 @@
   font-weight: 600;
 }
 
-/* Content 列は左寄せ */
+/* Content 見出しだけ中央揃え */
+.poster-table thead th:nth-child(2) {
+  text-align: center;
+}
+
+/* Content 本文は左揃え */
 .poster-table .content-name {
   text-align: left;
 }
 
-/* Year 列を中央揃え */
+/* Year 列（中央揃え + 最小幅） */
 .poster-table th:nth-child(1),
 .poster-table td:nth-child(1) {
   text-align: center;
-  width: 4.5em;   /* ← 4桁の数字が入る最小幅 */
+  width: 4em;     /* ← 4桁が入る最小幅 */
 }
 
-/* File 列を中央揃え */
+/* File 列（中央揃え + 最小幅） */
 .poster-table th:nth-child(3),
 .poster-table td:nth-child(3) {
   text-align: center;
-  width: 4.5em;   /* ← “PDF” が入る最小幅 */
+  width: 3.5em;   /* ← “PDF” が入る最小幅 */
 }
 
 /* PDFリンクの行間を詰める */
 .poster-table a {
-  margin: 2px 0;
+  margin: 2px 0;   /* ← 全ページ共通の12pxを上書き */
   font-size: 1em;
 }
+
 </style>  
 </head>
 
@@ -143,6 +149,7 @@
 
 </body>
 </html>
+
 
 
 
