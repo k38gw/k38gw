@@ -18,7 +18,7 @@
 
 .poster-table th,
 .poster-table td {
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 0.5rem;
   border-bottom: 1px solid #ddd;   /* ← 行の区切りだけ薄く */
 }
 
@@ -30,7 +30,13 @@
 .poster-table .content-name {
   text-align: left;
 }
-       
+
+/* PDFリンクの行間を詰める */ 
+.poster-table a {
+    margin: 4px 0; /* 全ページ共通の12pxを上書き */ 
+    font-size: 1em;
+}
+    
 </style>  
 </head>
 
@@ -111,6 +117,7 @@
 
 </body>
 </html>
+
 
 
 
