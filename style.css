@@ -47,26 +47,3 @@ a:hover {
     padding: 12px;
   }
 }
-
-/* --- files.html 専用のテーブルスタイル --- */
-
-.poster-table {
-  width: 100%;              /* ← スマホ対応のために追加すると良い */
-  margin: 2rem auto;
-  border-collapse: collapse;
-  text-align: center;
-  line-height: 1.1;         /* 情報密度の高いページなので狭めでOK */
-}
-
-.poster-table th,
-.poster-table td {
-  padding: 0.5rem 1rem;
-}
-
-.poster-table thead th {
-  font-weight: 600;
-}
-
-.poster-table .content-name {
-  text-align: left;
-}
