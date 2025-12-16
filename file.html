@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="style.css">
 
 <style>
-
-/* --- files.html 専用スタイル --- */
+/* --- files.html 専用スタイル（最終版） --- */
 /* テーブル全体のフォント：日本語は細め、英数字は等幅 */
 .poster-table {
   font-family:
@@ -20,14 +19,14 @@
   width: 100%;
   margin: 2rem auto;
   border-collapse: collapse;
-  text-align: left;       /* ← 横長画面での見やすさ改善 */
-  line-height: 1.05;      /* ← 行間を詰めて統一 */
+  text-align: left;
+  line-height: 1.05;
 }
 
 /* Year / Content / File のセル */
 .poster-table th,
 .poster-table td {
-  padding: 0.25rem 0.5rem;     /* ← 縦の余白を最適化 */
+  padding: 0.25rem 0.5rem;
   border-bottom: 1px solid #ddd;
 }
 
@@ -42,26 +41,23 @@
   text-align: left;
 }
 
-/* File 列だけ中央寄せ */
-.poster-table th:last-child,
-.poster-table td:last-child {
-  text-align: center;
-}
-
-/* 列幅の最適化（横長画面でも崩れない） */
+/* Year 列を中央揃え */
 .poster-table th:nth-child(1),
 .poster-table td:nth-child(1) {
-  width: 60px;     /* Year */
+  text-align: center;
+  width: 4.5em;   /* ← 4桁の数字が入る最小幅 */
 }
 
+/* File 列を中央揃え */
 .poster-table th:nth-child(3),
 .poster-table td:nth-child(3) {
-  width: 80px;     /* File */
+  text-align: center;
+  width: 4.5em;   /* ← “PDF” が入る最小幅 */
 }
 
 /* PDFリンクの行間を詰める */
 .poster-table a {
-  margin: 2px 0;   /* ← 全ページ共通の12pxを上書き */
+  margin: 2px 0;
   font-size: 1em;
 }
 </style>  
@@ -147,6 +143,7 @@
 
 </body>
 </html>
+
 
 
 
