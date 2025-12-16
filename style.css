@@ -17,6 +17,7 @@ body {
 
 /* 見出し（works.html などで使う） */
 h3 {
+  text-align: center;
   margin-bottom: 20px;
   font-size: 1.4em;
   font-weight: 500;
