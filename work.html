@@ -225,7 +225,7 @@
   <hr>
   <a href="index.html">home</a>
 
-  <!-- JavaScript（安定版） -->
+  <!-- JavaScript -->
 
 <script>
   const images = Array.from(document.querySelectorAll(".gallery img"));
@@ -235,6 +235,7 @@
 
   let currentIndex = 0;
 
+  // ギャラリーの画像クリックでライトボックスを開く
   images.forEach((img, index) => {
     img.addEventListener("click", () => {
       currentIndex = index;
@@ -252,14 +253,14 @@
     lightbox.style.display = "flex";
   }
 
-  // 背景クリックで閉じる
+  /* 背景クリックで閉じる（矢印や画像では閉じない） */
   lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox) {
       lightbox.style.display = "none";
     }
   });
 
-  // キーボード操作
+  /* キーボード操作 */
   document.addEventListener("keydown", (e) => {
     if (lightbox.style.display !== "flex") return;
 
@@ -276,50 +277,14 @@
     }
   });
 
-  // --- スワイプ操作（ピンチを除外） ---
-  let startX = 0;
-  let isPinching = false;
+  /* --- 画像タップで次へ進む（スマホでもPCでもクリック/タップ対応） --- */
+  lightboxImg.addEventListener("click", (e) => {
+    e.stopPropagation(); // 背景クリック扱いにならないように
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage();
+  });
 
-  // passive: false にして必要なら preventDefault できるようにする（モバイルでの挙動安定化）
-  lightbox.addEventListener("touchstart", (e) => {
-    // 2本以上の指ならピンチ扱い
-    if (e.touches && e.touches.length > 1) {
-      isPinching = true;
-      return;
-    }
-    isPinching = false;
-    startX = e.touches[0].clientX;
-  }, { passive: true });
-
-  lightbox.addEventListener("touchmove", (e) => {
-    // 途中で2本指になったらピンチ扱いに切り替え
-    if (e.touches && e.touches.length > 1) {
-      isPinching = true;
-    }
-  }, { passive: true });
-
-  lightbox.addEventListener("touchend", (e) => {
-    // ピンチ中 or マルチタッチの終了ならスワイプ判定しない
-    if (isPinching || (e.changedTouches && e.changedTouches.length > 1)) {
-      isPinching = false; // 次回に備えてリセット
-      return;
-    }
-
-    // 通常の1本指スワイプだけ判定
-    const endX = e.changedTouches[0].clientX;
-    const diff = endX - startX;
-
-    if (Math.abs(diff) > 50) {
-      if (diff < 0) {
-        currentIndex = (currentIndex + 1) % images.length;
-      } else {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-      }
-      showImage();
-    }
-  }, { passive: true });
-
-  // 矢印クリック
+  /* 矢印クリック */
   document.getElementById("prev-btn").addEventListener("click", (e) => {
     e.stopPropagation();
     currentIndex = (currentIndex - 1 + images.length) % images.length;
@@ -331,10 +296,13 @@
     currentIndex = (currentIndex + 1) % images.length;
     showImage();
   });
+
+  /* --- ここに存在していた「スワイプ操作」の touchstart/touchend は削除しました --- */
 </script>
 
 </body>
 </html>
+
 
 
 
