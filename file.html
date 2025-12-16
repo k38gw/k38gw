@@ -8,41 +8,62 @@
     <link rel="stylesheet" href="style.css">
 
 <style>
+
+/* --- files.html 専用スタイル --- */
+/* テーブル全体のフォント：日本語は細め、英数字は等幅 */
 .poster-table {
   font-family:
+    "Yu Gothic",
+    "Meiryo",
     "Roboto Mono",
-    "Source Code Pro",
-    "Osaka-mono",
-    "MS Gothic",
     monospace;
   width: 100%;
   margin: 2rem auto;
   border-collapse: collapse;
-  text-align: center;
-  line-height: 1.1;
+  text-align: left;       /* ← 横長画面での見やすさ改善 */
+  line-height: 1.05;      /* ← 行間を詰めて統一 */
 }
 
+/* Year / Content / File のセル */
 .poster-table th,
 .poster-table td {
-  padding: 0.25rem 0.5rem;
-  border-bottom: 1px solid #ddd;   /* ← 行の区切りだけ薄く */
+  padding: 0.25rem 0.5rem;     /* ← 縦の余白を最適化 */
+  border-bottom: 1px solid #ddd;
 }
 
+/* 見出し行だけ少し強め */
 .poster-table thead th {
-  border-bottom: 2px solid #ccc;   /* ← 見出しだけ少し強め */
+  border-bottom: 2px solid #ccc;
   font-weight: 600;
 }
 
+/* Content 列は左寄せ */
 .poster-table .content-name {
   text-align: left;
 }
 
-/* PDFリンクの行間を詰める */ 
-.poster-table a {
-    margin: 2px 0; /* 全ページ共通の12pxを上書き */ 
-    font-size: 1em;
+/* File 列だけ中央寄せ */
+.poster-table th:last-child,
+.poster-table td:last-child {
+  text-align: center;
 }
-    
+
+/* 列幅の最適化（横長画面でも崩れない） */
+.poster-table th:nth-child(1),
+.poster-table td:nth-child(1) {
+  width: 60px;     /* Year */
+}
+
+.poster-table th:nth-child(3),
+.poster-table td:nth-child(3) {
+  width: 80px;     /* File */
+}
+
+/* PDFリンクの行間を詰める */
+.poster-table a {
+  margin: 2px 0;   /* ← 全ページ共通の12pxを上書き */
+  font-size: 1em;
+}
 </style>  
 </head>
 
@@ -126,6 +147,7 @@
 
 </body>
 </html>
+
 
 
 
