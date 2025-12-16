@@ -72,7 +72,7 @@
 
     #lightbox-img {
       max-width: 100%;
-      max-height: 90vh;
+      max-height: 80vh;
       height: auto;
       width: auto;
     }
@@ -81,6 +81,8 @@
       color: white;
       margin-top: 10px;
       font-size: 1em;
+      max-height: 10vh; /* ← キャプションの高さを確保 */
+      overflow-y: auto; /* ← 長い場合はスクロール */
     }
 
     /* --- 矢印（画面左右に固定） --- */
@@ -113,7 +115,13 @@
         padding: 8px 10px;
       }
     }
-     
+
+    @media (orientation: landscape) {
+  #lightbox-img {
+    max-height: 70vh;
+  }
+}
+
 </style>
 
 </head>
@@ -300,6 +308,7 @@
 
 </body>
 </html>
+
 
 
 
