@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 
 <style>
-/* --- files.html 専用スタイル（横方向の余白最小版 + max-width 統合） --- */
+/* --- files.html 専用スタイル（File 列なし版・最終版） --- */
 
 /* スマホ横画面での文字自動拡大を防ぐ */
 .poster-table {
@@ -22,7 +22,7 @@
     monospace;
 
   width: 100%;
-  max-width: 780px;       /* ← 横長画面での間延び防止 */
+  max-width: 800px;       /* ← 横長画面での間延び防止（最適値） */
   margin: 1.5rem auto;    /* ← 中央寄せ（最小限） */
   border-collapse: collapse;
   text-align: left;
@@ -42,13 +42,13 @@
   font-weight: 600;
 }
 
-/* Content 見出しだけ中央揃え */
+/* Title 見出しだけ中央揃え */
 .poster-table thead th:nth-child(2) {
   text-align: center;
 }
 
-/* Content 本文は左揃え */
-.poster-table .content-name {
+/* Title 本文は左揃え */
+.poster-table .title-name {
   text-align: left;
 }
 
@@ -59,20 +59,18 @@
   width: 4.8em;     /* ← 4桁が入る最小幅（スマホ横でも安定） */
 }
 
-/* File 列（中央揃え + 最小幅） */
-.poster-table th:nth-child(3),
-.poster-table td:nth-child(3) {
-  text-align: center;
-  width: 4.2em;     /* ← “PDF” が入る最小幅 */
-}
-
-/* PDFリンクの行間を詰める */
+/* Title のリンク */
 .poster-table a {
   margin: 2px 0;
   font-size: 1em;
+  text-decoration: none;
+  color: inherit;          /* ← ミニマルにするため色を継承 */
 }
 
-</style>  
+.poster-table a:hover {
+  text-decoration: underline;
+}
+</style>
 </head>
 
 <body>
@@ -83,72 +81,82 @@
   <thead>
     <tr>
       <th>Year</th>
-      <th>Content</th>
-      <th>File</th>
+      <th>Title</th>
     </tr>
   </thead>
+
   <tbody>
     <tr>
       <td>2025</td>
-      <td class="content-name">福井市こども未来計画</td>
-      <td><a href="file/2025kodomoplan.pdf">PDF</a></td>
+      <td class="title-name">
+        <a href="file/2025kodomoplan.pdf">福井市こども未来計画</a>
+      </td>
     </tr>
+
     <tr>
       <td>2024</td>
-      <td class="content-name">宮地町わいわいまつり</td>
-      <td><a href="file/2024わいわいまつりちらし.pdf">PDF</a></td>
+      <td class="title-name">
+        <a href="file/2024わいわいまつりちらし.pdf">宮地町わいわいまつり</a>
+      </td>
     </tr>
+
     <tr>
       <td>2023</td>
-      <td class="content-name">日野川大花火会場マップ</td>
-      <td><a href="file/2023hanabi入稿用.pdf">PDF</a></td>
+      <td class="title-name">
+        <a href="file/2023hanabi入稿用.pdf">日野川大花火会場マップ</a>
+      </td>
     </tr>
+
     <tr>
       <td>2021</td>
-      <td class="content-name">福井市発達障がい児者支援計画</td>
-      <td><a href="file/2021R3.pdf">PDF</a></td>
+      <td class="title-name">
+        <a href="file/2021R3.pdf">福井市発達障がい児者支援計画</a>
+      </td>
     </tr>
+
     <tr>
       <td>2018</td>
-      <td class="content-name">フェニックスマンぬり絵</td>
-      <td><a href="file/2018phoenix_nurie.pdf">PDF</a></td>
+      <td class="title-name">
+        <a href="file/2018phoenix_nurie.pdf">フェニックスマンぬり絵</a>
+      </td>
     </tr>
+
     <tr>
       <td>2017<br>|<br>2012</td>
-      <td class="content-name">東山アクアスロン2016-17<br>
-        東山アクアスロン2014-15<br>
-        東山アクアスロン2012-13<br>
-      </td>
-      <td>
-        <a href="file/2016-2017higashiyama.pdf">PDF</a><br>
-        <a href="file/2014-2015higashiyama.pdf">PDF</a><br>
-        <a href="file/2012-2013higashiyama.pdf">PDF</a><br>
+      <td class="title-name">
+        <a href="file/2016-2017higashiyama.pdf">東山アクアスロン2016-17</a><br>
+        <a href="file/2014-2015higashiyama.pdf">東山アクアスロン2014-15</a><br>
+        <a href="file/2012-2013higashiyama.pdf">東山アクアスロン2012-13</a>
       </td>
     </tr>
+
     <tr>
       <td>2010</td>
-      <td class="content-name">在住外国人のための医療ハンドブック<span style="font-size: 0.8em;">（大分県文化スポーツ振興財団）</span></td>
-      <td><a href="file/2010iryo_hand_j.pdf">PDF</a></td>
+      <td class="title-name">
+        <a href="file/2010iryo_hand_j.pdf">在住外国人のための医療ハンドブック</a>
+        <span style="font-size: 0.8em;">（大分県文化スポーツ振興財団）</span>
+      </td>
     </tr>
+
     <tr>
       <td>2010</td>
-      <td class="content-name">福井市多文化共生推進プラン</td>
-      <td><a href="file/2010多文化共生推進プラン.pdf">PDF</a></td>
+      <td class="title-name">
+        <a href="file/2010多文化共生推進プラン.pdf">福井市多文化共生推進プラン</a>
+      </td>
     </tr>
+
     <tr>
       <td>2007</td>
-      <td class="content-name">福井市地域福祉計画</td>
-      <td><a href="file/2007地域福祉計画.pdf">PDF</a></td>
+      <td class="title-name">
+        <a href="file/2007地域福祉計画.pdf">福井市地域福祉計画</a>
+      </td>
     </tr>
-</tbody>
+  </tbody>
 </table>
 
 <div style="text-align: center;">
-    <a href="index.html">home</a>
+  <a href="index.html">home</a>
 </div>
 
 </body>
 </html>
-
-
-
