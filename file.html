@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 
 <style>
-/* --- files.html 専用スタイル（最終版） --- */
+/* --- files.html 専用スタイル（最終版 + max-width） --- */
 
 /* スマホ横画面での文字自動拡大を防ぐ */
 .poster-table {
@@ -22,16 +22,17 @@
     monospace;
 
   width: 100%;
-  margin: 2rem 0;          /* ← 左右の余白を完全にゼロに */
+  max-width: 900px;       /* ← 横幅の最大値を設定（重要） */
+  margin: 2rem auto;      /* ← 中央寄せ */
   border-collapse: collapse;
   text-align: left;
-  line-height: 1.05;       /* ← 行間を詰めて統一 */
+  line-height: 1.05;
 }
 
 /* セルの余白（横方向を最小化） */
 .poster-table th,
 .poster-table td {
-  padding: 0.15rem 0.15rem;   /* ← 左右を詰める */
+  padding: 0.25rem 0.25rem;
   border-bottom: 1px solid #ddd;
 }
 
@@ -55,19 +56,19 @@
 .poster-table th:nth-child(1),
 .poster-table td:nth-child(1) {
   text-align: center;
-  width: 5em;     /* ← 4桁が入る最小幅（スマホ横でも安定） */
+  width: 5em;
 }
 
 /* File 列（中央揃え + 最小幅） */
 .poster-table th:nth-child(3),
 .poster-table td:nth-child(3) {
   text-align: center;
-  width: 4.5em;   /* ← “PDF” が入る最小幅 */
+  width: 4.5em;
 }
 
 /* PDFリンクの行間を詰める */
 .poster-table a {
-  margin: 2px 0;   /* ← 全ページ共通の12pxを上書き */
+  margin: 2px 0;
   font-size: 1em;
 }
 
@@ -148,6 +149,7 @@
 
 </body>
 </html>
+
 
 
 
