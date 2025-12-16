@@ -22,7 +22,7 @@
     monospace;
 
   width: 100%;
-  max-width: 800px;       /* ← 横長画面での間延び防止（最適値） */
+  max-width: 750px;       /* ← 要望どおり 750px に変更 */
   margin: 1.5rem auto;    /* ← 中央寄せ（最小限） */
   border-collapse: collapse;
   text-align: left;
@@ -32,7 +32,7 @@
 /* セルの余白（横方向を限界まで詰める） */
 .poster-table th,
 .poster-table td {
-  padding: 0.2rem 0.15rem;   /* ← これ以上は詰めすぎになる限界値 */
+  padding: 0.2rem 0.15rem;
   border-bottom: 1px solid #ddd;
 }
 
@@ -42,9 +42,9 @@
   font-weight: 600;
 }
 
-/* Title 見出しだけ中央揃え */
+/* Title 見出しを左揃えに変更 */
 .poster-table thead th:nth-child(2) {
-  text-align: center;
+  text-align: left;
 }
 
 /* Title 本文は左揃え */
@@ -56,7 +56,7 @@
 .poster-table th:nth-child(1),
 .poster-table td:nth-child(1) {
   text-align: center;
-  width: 4.8em;     /* ← 4桁が入る最小幅（スマホ横でも安定） */
+  width: 4.8em;
 }
 
 /* Title のリンク */
@@ -64,7 +64,7 @@
   margin: 2px 0;
   font-size: 1em;
   text-decoration: none;
-  color: inherit;          /* ← ミニマルにするため色を継承 */
+  color: inherit;
 }
 
 .poster-table a:hover {
@@ -133,7 +133,8 @@
     <tr>
       <td>2010</td>
       <td class="title-name">
-        <a href="file/2010iryo_hand_j.pdf">在住外国人のための医療ハンドブック<span style="font-size: 0.8em;">（大分県文化スポーツ振興財団）</span></a>
+        <a href="file/2010iryo_hand_j.pdf">在住外国人のための医療ハンドブック</a>
+        <span style="font-size: 0.8em;">（大分県文化スポーツ振興財団）</span>
       </td>
     </tr>
 
@@ -159,6 +160,3 @@
 
 </body>
 </html>
-
-
-
