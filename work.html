@@ -118,12 +118,14 @@
 
 @media (max-width: 600px) and (orientation: portrait) {
   #lightbox-img {
-    width: auto;        /* ← 横幅100%を解除 */
-    height: 88vh;       /* ← 高さ基準で最大化 */
-    max-height: 88vh;
-    max-width: 100%;    /* ← 横にはみ出さないように保険 */
+    width: auto;
+    height: auto;
+    max-height: 88vh;   /* ← 上限だけ指定する（固定しない） */
+    max-width: 100%;
+    object-fit: contain; /* ← 比率を絶対に守る */
   }
 }
+
       
 </style>
 
@@ -311,6 +313,7 @@
 
 </body>
 </html>
+
 
 
 
