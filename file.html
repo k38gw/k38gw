@@ -9,13 +9,18 @@
 
 <style>
 /* --- files.html 専用スタイル（最終版） --- */
-/* テーブル全体のフォント：日本語は細め、英数字は等幅 */
+
+/* スマホ横画面での文字自動拡大を防ぐ */
 .poster-table {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
   font-family:
     "Yu Gothic",
     "Meiryo",
     "Roboto Mono",
     monospace;
+
   width: 100%;
   margin: 2rem 0;          /* ← 左右の余白を完全にゼロに */
   border-collapse: collapse;
@@ -50,14 +55,14 @@
 .poster-table th:nth-child(1),
 .poster-table td:nth-child(1) {
   text-align: center;
-  width: 4em;     /* ← 4桁が入る最小幅 */
+  width: 5em;     /* ← 4桁が入る最小幅（スマホ横でも安定） */
 }
 
 /* File 列（中央揃え + 最小幅） */
 .poster-table th:nth-child(3),
 .poster-table td:nth-child(3) {
   text-align: center;
-  width: 3.5em;   /* ← “PDF” が入る最小幅 */
+  width: 4.5em;   /* ← “PDF” が入る最小幅 */
 }
 
 /* PDFリンクの行間を詰める */
@@ -144,6 +149,7 @@
 
 </body>
 </html>
+
 
 
 
